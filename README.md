@@ -8,7 +8,7 @@ Remarks: jQuery's implementation on dimension APIs is very nice!
 ## Usage
 
 ```html
-<script src="jDim-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cyfung1031/jqDim@3.6.0/release/jqDim-3.6.0.min.js"></script>
 
 
 <a href="javascript:void(0);" onclick="ShowElementDimensions();">Show element dimensions</a>
