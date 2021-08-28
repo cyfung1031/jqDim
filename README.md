@@ -1,7 +1,7 @@
 # jqDim
 Provide the traditional dimension methods as jQuery Slim.
 
-It is suggested to use it with [Vanilla JS](http://vanilla-js.com/), [Bliss Shy](https://blissfuljs.com/), or [Cash](https://github.com/fabiospampinato/cash).
+It is suggested to use it with [Vanilla JS](http://vanilla-js.com/), [Bliss](https://blissfuljs.com/), or [Cash](https://github.com/fabiospampinato/cash).
 
 Remarks: jQuery's implementation on dimension APIs is very nice!
 
@@ -21,12 +21,12 @@ function ShowElementDimensions()
     let elm = document.querySelector("#divTestArea1")
 	var result = "";
 
-    let jqDim = window.jqDim(elm)
+    let dim = window.jqDim(elm)
 	
-	result += "Dimensions of div: " + jqDim.width() + "x" + jqDim.height() + "</br>";
-	result += "Inner dimensions of div: " + jqDim.innerWidth() + "x" + jqDim.innerHeight() + "</br>";	
-	result += "Outer dimensions of div: " + jqDim.outerWidth() + "x" + jqDim.outerHeight() + "</br>";	
-	result += "Outer dimensions of div (with margin): " + jqDim.outerWidth(true) + "x" + jqDim.outerHeight(true) + "</br>";	
+	result += "Dimensions of div: " + dim.width() + "x" + dim.height() + "</br>";
+	result += "Inner dimensions of div: " + dim.innerWidth() + "x" + dim.innerHeight() + "</br>";	
+	result += "Outer dimensions of div: " + dim.outerWidth() + "x" + dim.outerHeight() + "</br>";	
+	result += "Outer dimensions of div (with margin): " + dim.outerWidth(true) + "x" + dim.outerHeight(true) + "</br>";	
 	
 	(elm).innerHTML=result;
     
@@ -37,7 +37,7 @@ function ShowElementDimensions()
 
 ## File Size Reference
 
-| Size               | jDim 3.6.0  | Bliss Shy  | Cash 8.1.0  | jQuery Slim 3.6.0 |
+| Size               | jDim 3.6.0  | Bliss  | Cash 8.1.0  | jQuery Slim 3.6.0 |
 | ------------------ | ----------- | ---------  | ----------  | ----------------- |
 | Unminified         | 27.1 KB     | 21.1 KB    | 36.5 KB     | 229 KB            |
 | Minified           | 5.97 KB     | 10.7 KB    | 16 KB       | 70.6 KB           |
@@ -48,6 +48,8 @@ function ShowElementDimensions()
 | Unminified         | 48.2 KB       | 57.6 KB      | 229 KB            |
 | Minified           | 16.7 KB       | 22 KB        | 70.6 KB           |
 | Minified & Gzipped | 5.59 KB       | 8.59 KB      | 24.4 KB           |
+
+* jqDim is minified by [Andrew Chilton](https://chilts.org/)'s [JavaScript Minifier](https://javascript-minifier.com/)
 
 ## jqDim(element)'s methods [GET]
 * .offset()
