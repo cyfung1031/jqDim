@@ -79,6 +79,10 @@ function ShowElementDimensions()
 [opera]:   https://raw.githubusercontent.com/alrra/browser-logos/main/src/opera/opera_48x48.png "Opera"
 [safari]:  https://raw.githubusercontent.com/alrra/browser-logos/main/src/safari/safari_48x48.png "Safari"
 
+## Fix for Dimension Calculation in 3.7.1
+
+![Screen Shot 2024-03-25 at 19 24 47](https://github.com/cyfung1031/jqDim/assets/44498510/4d1b70d3-96b2-4d13-a3fe-b8c475f34519)
+
 ## License
 
 ### This project is released under MIT License
