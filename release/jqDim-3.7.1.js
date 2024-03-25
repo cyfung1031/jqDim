@@ -158,8 +158,26 @@
                     const tr = document.createElement( "tr" );
                     const trChild = document.createElement( "div" );
 
-                    table.style.cssText = "position:absolute;left:-11111px;border-collapse:separate";
-                    tr.style.cssText = "box-sizing:content-box;border:1px solid";
+                    let tableStyleText, trStyleText, testFn;
+                    
+                    if ( jqDim.reliableTrDimensionsVer === 1 ){
+                        // jQuery <= 3.5.1
+                        tableStyleText = "position:absolute;left:-11111px;border-collapse:separate";
+                        trStyleText = "box-sizing:content-box;border:0";
+                        testFn = (trStyle) => parseInt( trStyle.height ) > 3;
+                    } else if ( jqDim.reliableTrDimensionsVer === 2 ){
+                        // jQuery 3.6.0 ~ 3.7.1
+                        tableStyleText = "position:absolute;left:-11111px;border-collapse:separate";
+                        trStyleText = "box-sizing:content-box;border:1px solid";
+                        testFn = (trStyle) => ( parseInt( trStyle.height, 10 ) +
+                            parseInt( trStyle.borderTopWidth, 10 ) +
+                            parseInt( trStyle.borderBottomWidth, 10 ) ) === tr.offsetHeight;
+                    } else {
+                        throw 'Error';
+                    }
+
+                    table.style.cssText = tableStyleText;
+                    tr.style.cssText = trStyleText;
 
                     // Support: Chrome 86+
                     // Height set through cssText does not get applied.
@@ -181,14 +199,14 @@
                         .appendChild( trChild );
 
                     const trStyle = window.getComputedStyle( tr );
-                    reliableTrDimensionsVal = ( parseInt( trStyle.height, 10 ) +
-                        parseInt( trStyle.borderTopWidth, 10 ) +
-                        parseInt( trStyle.borderBottomWidth, 10 ) ) === tr.offsetHeight;
+                    reliableTrDimensionsVal = testFn(trStyle);
 
                     documentElement.removeChild( table );
+
                 }
                 return reliableTrDimensionsVal;
             }
+            
         } );
     } )();
 
@@ -338,7 +356,7 @@
     function getWidthOrHeight( elem, dimension, extra ) {
 
         // Start with computed style
-        const styles = getStyles( elem ),
+        let styles = getStyles( elem ),
 
             // To avoid forcing a reflow, only fetch boxSizing if we need it (gh-4322).
             // Fake content-box until we know it's needed to know the true value.
@@ -689,5 +707,6 @@
     
  
 	window.jqDim = jqDim; 
+    jqDim.reliableTrDimensionsVer = 1; // jQuery 3.5.1
  
 } )(typeof window !== "undefined" ? window : this);

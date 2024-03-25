@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Methods Complex Demo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    table td {
+      color: white !important;
+      line-height: 23.85px;
+    }
+
+    td#td {
+      background-color: green;
+      color: green !important;
+    }
+  </style>
+
+<body>
+
+  <div>
+    <table style="width:600px;">
+      <tr>
+        <td style="white-space:normal;width:120px;">INGRESOS DE ACTIVIDADES ORDINARIAS</td>
+        <td style="white-space:normal;width:79px;">VENTA DE BIENES</td>
+        <td id="td" style="width:235px;"></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="result"></div>
+
+
+  <script>
+    var result = '<b><u>JQuery 3.7.1</u></b><br>';
+
+    const $$ = (window.$ || window.jqDim);
+
+    result += `<b>&nbsp;&nbsp;tr height:</b> ${ $$( document.querySelector('tr')).height()}<br>`;
+    result += `<b>&nbsp;&nbsp;tbody height:</b> ${ $$( document.querySelector('tbody')).height()}<br>`;
+
+    document.querySelector('#result').innerHTML=result;
+  </script>
+</body>
+
+</html>
