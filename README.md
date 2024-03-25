@@ -8,7 +8,7 @@ Remarks: jQuery's implementation on dimension APIs is very nice!
 ## Usage
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/cyfung1031/jqDim@3.6.0/release/jqDim-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cyfung1031/jqDim@3.7.1/release/jqDim-3.7.1.min.js"></script>
 
 
 <a href="javascript:void(0);" onclick="ShowElementDimensions();">Show element dimensions</a>
@@ -84,10 +84,10 @@ function ShowElementDimensions()
 ### This project is released under MIT License
 * https://raw.githubusercontent.com/cyfung1031/jqDim/main/LICENSE
 
-### Most source codes come from jQuery Slim v3.6.0
+### Most source codes come from jQuery Slim v3.7.1
 
 >  
-> jQuery JavaScript Library v3.6.0 -ajax,-ajax/jsonp,-ajax/load,-ajax/script,-ajax/var/location,-ajax/var/nonce,-ajax/var/rquery,-ajax/xhr,-manipulation/_evalUrl,-deprecated/ajax-event-alias,-effects,-effects/Tween,-effects/animatedSelector
+> jQuery JavaScript Library v3.7.1 -ajax,-ajax/jsonp,-ajax/load,-ajax/script,-ajax/var/location,-ajax/var/nonce,-ajax/var/rquery,-ajax/xhr,-manipulation/_evalUrl,-deprecated/ajax-event-alias,-effects,-effects/Tween,-effects/animatedSelector
 >
 > https://jquery.com/
 > 
