@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery Methods Complex Demo</title>
+<script src="../release/jqDim-3.6.0.js"></script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size:12px;
+    }
+    .relative-container {
+        position: relative;
+        width: 90%;
+        height: 300px;
+        margin: 20px auto;
+        padding: 10px;
+        border: 2px solid #000;
+        overflow: auto;
+        margin: 3px;
+        padding: 4px;
+    }
+    .absolute-box {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        width: 100px;
+        height: 100px;
+        padding: 5px;
+        border: 2px solid blue;
+        background-color: #e0e0ff;
+        margin: 5px;
+        padding: 6px;
+    }
+    .fixed-box {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        width: 60px;
+        height: 60px;
+        padding: 5px;
+        border: 2px solid green;
+        background-color: #e0ffe0;
+        margin: 2px;
+        padding: 1px;
+    }
+    .nested-box {
+        position: relative;
+        width: 50%;
+        height: 50%;
+        margin: 10px 0;
+        padding: 5px;
+        border: 2px solid red;
+        background-color: #fff0f0;
+        overflow: auto;
+        margin: 6px;
+        padding: 8px;
+    }
+    .deep-nested-box {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 40%;
+        height: 40%;
+        border: 2px solid orange;
+        background-color: #fffaf0;
+        margin: 10px;
+        padding: 12px;
+    }
+    .results {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 900px;
+        height: 240px;
+        padding: 10px;
+        border: 1px solid #000;
+        background-color: #f9f9f9;
+        opacity: 0.45;
+    }
+</style>
+</head>
+<body>
+
+    <div class="relative-container">
+        Relative Container
+        <div class="absolute-box">
+            Absolute Box
+            <div class="nested-box">
+                Nested Box
+                <div class="deep-nested-box">Deep Nested Box</div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-box">Fixed Box</div>
+    
+    <button id="queryAllBtn">Query All Elements</button>
+    
+    <div contenteditable="false" style="pointer-events: none; position: absolute;">
+        <div contenteditable="true" style="pointer-events: none; position: absolute;">
+            <div class="results" style="pointer-events: all;"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const $$ = (window.$ || window.jqDim);
+            document.getElementById('queryAllBtn').addEventListener('click', function () {
+                var result = '';
+                var elements = ['.relative-container', '.absolute-box', '.nested-box', '.deep-nested-box'];
+                elements.forEach(function (selector) {
+                    var elem = document.querySelector(selector);
+                    var dimensions = $$(elem);
+    
+                    result += selector + '<br>';
+                    result += 'coords : ' + JSON.stringify({
+                        offset: dimensions.offset(),
+                        position: dimensions.position(),
+                        scrollTop: dimensions.scrollTop(),
+                        scrollLeft: dimensions.scrollLeft()
+                    }) + '<br>';
+    
+                    result += 'sizes : ' + JSON.stringify({
+                        width: +dimensions.width().toFixed(2),
+                        height: +dimensions.height().toFixed(2),
+                        innerWidth: +dimensions.innerWidth().toFixed(2),
+                        innerHeight: +dimensions.innerHeight().toFixed(2),
+                        outerWidth: +dimensions.outerWidth().toFixed(2),
+                        outerHeight: +dimensions.outerHeight().toFixed(2),
+                        outerWidthTrue: +dimensions.outerWidth(true).toFixed(2),
+                        outerHeightTrue: +dimensions.outerHeight(true).toFixed(2)
+                    }) + '<br>';
+                    result += '<br>';
+                });
+                document.querySelector('.results').innerHTML = result;
+            });
+        });
+    
+    </script>
+
+</body>
+</html>
