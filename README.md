@@ -5,6 +5,14 @@ It is suggested to use it with [Vanilla JS](http://vanilla-js.com/), [Bliss](htt
 
 Remarks: jQuery's implementation on dimension APIs is very nice!
 
+## Options
+
+### jQuery 3.5.1 (default)
+* jqDim.reliableTrDimensionsVer = 1
+
+### jQuery 3.6.0 ~ 3.7.1 (see https://github.com/jquery/jquery/issues/5270)
+* jqDim.reliableTrDimensionsVer = 2
+
 ## Usage
 
 ```html
